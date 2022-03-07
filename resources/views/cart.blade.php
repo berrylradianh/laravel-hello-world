@@ -1,7 +1,7 @@
 <!DOCTYPE >
-<html>
+<html >
 <head>
-<title>Flower Shop - My Account</title>
+<title>Flower Shop - Cart</title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 <link
     rel="stylesheet"
@@ -12,14 +12,14 @@
 <body>
 <div id="wrap">
   <div class="header">
-    <div class="logo"><a href="#"><img src="{{asset('images/logo.gif')}}" alt="" border="0" /></a></div>
+    <div class="logo"><a href="/"><img src={{asset('images/logo.gif')}} alt="" border="0" /></a></div>
     <div id="menu">
       <ul>
         <li><a href="/">home</a></li>
         <li><a href="about">about us</a></li>
         <li><a href="category">flowers</a></li>
         <li><a href="specials">specials gifts</a></li>
-        <li class="selected"><a href="myaccount">my accout</a></li>
+        <li><a href="myaccount">my accout</a></li>
         <li><a href="register2">register</a></li>
         <li><a href="details">prices</a></li>
         <li><a href="contact">contact</a></li>
@@ -28,37 +28,53 @@
   </div>
   <div class="center_content">
     <div class="left_content">
-      <div class="title"><span class="title_icon"><img src="{{asset('images/bullet1.gif')}}" alt="" /></span>My account</div>
+      <div class="title"><span class="title_icon"><img src="{{asset('images/bullet1.gif')}}" alt="" /></span>My cart</div>
       <div class="feat_prod_box_details">
-        <p class="details"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
-        <div class="contact_form">
-          <div class="form_subtitle">login into your account</div>
-          <form name="register" href="#">
-            <div class="form_row">
-              <label class="contact"><strong>Username:</strong></label>
-              <input type="text" class="contact_input" />
-            </div>
-            <div class="form_row">
-              <label class="contact"><strong>Password:</strong></label>
-              <input type="text" class="contact_input" />
-            </div>
-            <div class="form_row">
-              <div class="terms">
-                <input type="checkbox" name="terms" />
-                Remember me </div>
-            </div>
-            <div class="form_row">
-              <input type="submit" class="register" value="login" />
-            </div>
-          </form>
-        </div>
-      </div>
+        <table class="cart_table">
+          <tr class="cart_title">
+            <td>Item pic</td>
+            <td>Product name</td>
+            <td>Unit price</td>
+            <td>Qty</td>
+            <td>Total</td>
+          </tr>
+          <tr>
+            <td><a href="#"><img src="{{asset('images/cart_thumb.gif')}}" alt="" border="0" class="cart_thumb" /></a></td>
+            <td>Gift flowers</td>
+            <td>100$</td>
+            <td>1</td>
+            <td>100$</td>
+          </tr>
+          <tr>
+            <td><a href="#"><img src="{{asset('images/cart_thumb.gif')}}" alt="" border="0" class="cart_thumb" /></a></td>
+            <td>Gift flowers</td>
+            <td>100$</td>
+            <td>1</td>
+            <td>100$</td>
+          </tr>
+          <tr>
+            <td><a href="#"><img src="{{asset('images/cart_thumb.gif')}}" alt="" border="0" class="cart_thumb" /></a></td>
+            <td>Gift flowers</td>
+            <td>100$</td>
+            <td>1</td>
+            <td>100$</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="cart_total"><span class="red">TOTAL SHIPPING:</span></td>
+            <td> 250$</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="cart_total"><span class="red">TOTAL:</span></td>
+            <td> 325$</td>
+          </tr>
+        </table>
+        <a href="#" class="continue">&lt; continue</a> <a href="#" class="checkout">checkout &gt;</a> </div>
       <div class="clear"></div>
     </div>
     <!--end of left content-->
     <div class="right_content">
-        <div class="languages_box"> <span class="red">Languages:</span> <a href="#"><img src="{{asset('images/gb.gif')}}" alt="" border="0" /></a> <a href="#"><img src="{{asset('images/fr.gif')}}" alt="" border="0" /></a> <a href="#"><img src="{{asset('images/de.gif')}}" alt="" border="0" /></a> </div>
-        <div class="currency"> <span class="red">Currency: </span> <a href="#">GBP</a> <a href="#">EUR</a> <a href="#"><strong>USD</strong></a> </div>
+        <div class="languages_box"> <span class="red">Languages:</span> <a href="#" class="selected"><img src="{{asset('images/gb.gif')}}" alt="" border="0" /></a> <a href="#"><img src="{{asset('images/fr.gif')}}" alt="" border="0" /></a> <a href="#"><img src="{{asset('images/de.gif')}}" alt="" border="0" /></a> </div>
+        <div class="currency"> <span class="red">Currency: </span> <a href="#">GBP</a> <a href="#">EUR</a> <a href="#" class="selected">USD</a> </div>
         <div class="cart">
           <div class="title"><span class="title_icon"><img src="{{asset('images/cart.gif')}}" alt="" /></span>My cart</div>
           <div class="home_cart_content"> 3 x items | <span class="red">TOTAL: 100$</span> </div>

@@ -65,7 +65,7 @@
         <div class="cart">
           <div class="title"><span class="title_icon"><img src="{{asset('images/cart.gif')}}" alt="" /></span>My cart</div>
           <div class="home_cart_content"> 3 x items | <span class="red">TOTAL: 100$</span> </div>
-          <a href="#" class="view_cart">view cart</a> </div>
+          <a href="cart" class="view_cart">view cart</a> </div>
         <div class="title"><span class="title_icon"><img src="{{asset('images/bullet3.gif')}}" alt="" /></span>About Our Shop</div>
         <div class="about">
           <p> <img src="{{asset('images/about.gif')}}" alt="" class="right" /> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
