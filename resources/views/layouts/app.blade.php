@@ -12,6 +12,11 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <link
+    rel="stylesheet"
+    href="{{asset('css/style.css')}}"
+    type="text/css"
+    />
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -93,9 +98,20 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="center_content" style="margin-left: 20%">
+            <div class="left_content">
+              @yield('left_content')
+            </div>
+            <!--end of left content-->
+              @include('partials.sidebar')
+            <!--end of right content-->
+            <div class="clear"></div>
+          </div>
+        <div class="footer">
+            <div class="left_footer"><img src="{{asset('images/footer_logo.gif')}}" alt="" /><br />
+              <a href="http://csscreme.com"><img src="{{asset('images/csscreme.gif')}}" alt="" border="0" /></a></div>
+            <div class="right_footer"> <a href="/">home</a> <a href="about">about us</a> <a href="category">services</a> <a href="contact">contact us</a> </div>
+        </div>
     </div>
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
     //  */
     public function index()
     {
-        return view('posts.welcome');
+        $posts = Post::paginate(3);
+        return view('posts.welcome', compact('posts'));
     }
 }
