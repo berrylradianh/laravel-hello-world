@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,7 +14,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('posts.category');
+        $posts = Post::paginate(3);
+        return view('posts.category', compact('posts'),[
+            'title' => 'Category',
+            'menu' => 'category name'
+        ]);
     }
 
     /**

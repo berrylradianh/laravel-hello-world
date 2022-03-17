@@ -4,41 +4,39 @@
     <div class="crumb_nav"> <a href="/">home</a> &gt;&gt; {{ $menu }} </div>
 @endsection
 
-@section('main-left-content')
+@section('left_content')
+<div class="title"><span class="title_icon"><img src="images/bullet1.gif" alt="" /></span>Category products</div>
 <div class="new_products">
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <a href="#"><img src="{{asset('images/thumb1.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <span class="new_icon"><img src="{{asset('images/new_icon.gif')}}" alt="" /></span> <a href="#"><img src="{{asset('images/thumb2.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <span class="new_icon"><img src="{{asset('images/promo_icon.gif')}}" alt="" /></span> <a href="#"><img src="{{asset('images/thumb3.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <a href="#"><img src="{{asset('images/thumb1.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <span class="new_icon"><img src="{{asset('images/promo_icon.gif')}}" alt="" /></span> <a href="#"><img src="{{asset('images/thumb2.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <a href="#"><img src="{{asset('images/thumb3.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <span class="new_icon"><img src="{{asset('images/new_icon.gif')}}" alt="" /></span> <a href="#"><img src="{{asset('images/thumb2.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <a href="#"><img src="{{asset('images/thumb1.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <a href="#"><img src="{{asset('images/thumb1.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <span class="new_icon"><img src="{{asset('images/new_icon.gif')}}" alt="" /></span> <a href="#"><img src="{{asset('images/thumb1.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="new_prod_box"> <a href="#">product name</a>
-      <div class="new_prod_bg"> <a href="#"><img src="{{asset('images/thumb1.gif')}}" alt="" class="thumb" border="0" /></a> </div>
-    </div>
-    <div class="pagination"> <span class="disabled"><<</span><span class="current">1</span><a href="#">2</a><a href="#">3</a>�<a href="#">10</a><a href="#">11</a><a href="#">>></a> </div>
+    @forelse ($posts as $item )
+    <div class="feat_prod_box">
+        <div class="prod_img"><a href="#"><img src="{{ $item->images }}" alt="" border="0" /></a></div>
+        <div class="prod_det_box">
+          <div class="box_top"></div>
+          <div class="box_center">
+            <div class="prod_title">{{ $item->title }}</div>
+            <p class="details">{{ $item->content }}</p>
+            <a href="#" class="more"></a>
+            <div class="clear"></div>
+          </div>
+          <div class="box_bottom"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    @empty
+        <div class="feat_prod_box">
+            <div class="prod_img"><a href="#"><img src="#" alt="" border="0" /></a></div>
+            <div class="prod_det_box">
+            <div class="box_top"></div>
+            <div class="box_center">
+                <div class="prod_title">Belum ada data</div>
+                <p class="details">Belum ada data</p>
+                <a href="#" class="more"></a>
+                <div class="clear"></div>
+            </div>
+            <div class="box_bottom"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    @endforelse
   </div>
 @endsection

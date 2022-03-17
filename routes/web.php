@@ -34,7 +34,6 @@ Route::get('/about',[AboutController::class,'index']);
 Route::get('/category',[CategoryController::class,'index']);
 Route::get('/specials',[SpecialsController::class,'index']);
 Route::get('/myaccount',[MyAccountController::class,'index']);
-Route::get('/details',[DetailsController::class,'index']);
 Route::get('/contact',[ContactController::class,'index']);
 Route::get('/cart',[CartController::class,'index']);
 

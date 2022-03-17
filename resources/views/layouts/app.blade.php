@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Flower Shop</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -42,9 +42,6 @@
                 </a>
                 <a class="navbar-brand" href="{{ url('specials') }}">
                     specials gifts
-                </a>
-                <a class="navbar-brand" href="{{ url('details') }}">
-                    prices
                 </a>
                 <a class="navbar-brand" href="{{ url('contact') }}">
                     contact
@@ -97,21 +94,9 @@
                 </div>
             </div>
         </nav>
-
-        <div class="center_content" style="margin-left: 20%">
-            <div class="left_content">
-              @yield('left_content')
-            </div>
-            <!--end of left content-->
-              @include('partials.sidebar')
-            <!--end of right content-->
-            <div class="clear"></div>
-          </div>
-        <div class="footer">
-            <div class="left_footer"><img src="{{asset('images/footer_logo.gif')}}" alt="" /><br />
-              <a href="http://csscreme.com"><img src="{{asset('images/csscreme.gif')}}" alt="" border="0" /></a></div>
-            <div class="right_footer"> <a href="/">home</a> <a href="about">about us</a> <a href="category">services</a> <a href="contact">contact us</a> </div>
-        </div>
+        <main>
+            @yield('content')
+        </main>
     </div>
 </body>
 </html>

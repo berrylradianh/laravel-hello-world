@@ -1,35 +1,111 @@
-<!DOCTYPE>
-<html>
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-<title>Flower Shop - {{ $title }}</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
-<link
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Flower Shop - {{ $title }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <link
     rel="stylesheet"
     href="{{asset('css/style.css')}}"
     type="text/css"
-/>
-@yield('style')
+    />
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="wrap">
-        <!--Header-->
-            @include('partials.header');
-        <!--End of Header-->
-      <div class="center_content">
-        <!--Left Content-->
-            @include('partials.content');
-        <!--end of left content-->
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand " href="{{ url('/') }}">
+                    Flower Shop &#124
+                </a>
+                <a class="navbar-brand selected" href="{{ url('/') }}">
+                    home
+                </a>
+                <a class="navbar-brand" href="{{ url('about') }}">
+                    about us
+                </a>
+                <a class="navbar-brand" href="{{ url('category') }}">
+                    flowers
+                </a>
+                <a class="navbar-brand" href="{{ url('specials') }}">
+                    specials gifts
+                </a>
+                <a class="navbar-brand" href="{{ url('contact') }}">
+                    contact
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <!--Right Content-->
-            @include('partials.sidebar');
-        <!--end of right content-->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
 
-        <div class="clear"></div>
-      </div>
-      <!--end of center content-->
-      <!--Footer-->
-        @include('partials.footer');
-      <!--End of Footer-->
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="center_content" style="margin-left: 20%">
+            <div class="left_content">
+              @yield('crumb')
+              @yield('left_content')
+            </div>
+            <!--end of left content-->
+            @include('partials.sidebar')
+            <!--end of right content-->
+            <div class="clear"></div>
+          </div>
+          @include('partials.footer')
+
     </div>
-    </body>
+</body>
 </html>
